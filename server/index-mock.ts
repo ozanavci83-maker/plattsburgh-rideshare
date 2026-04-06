@@ -1,9 +1,9 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
+import * as express from 'express';
+import * as cors from 'cors';
+import * as dotenv from 'dotenv';
 import { v4 as uuidv4 } from 'uuid';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+import * as bcryptjs from 'bcryptjs';
+import * as jwt from 'jsonwebtoken';
 import { mockDb } from './db/mock';
 
 dotenv.config();
@@ -41,7 +41,7 @@ app.post('/api/auth/signup', async (req: any, res: any) => {
       return res.status(400).json({ error: 'Email already exists' });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
     const userId = uuidv4();
 
     const user = mockDb.createUser({
@@ -103,7 +103,7 @@ app.post('/api/auth/login', async (req: any, res: any) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    const isValid = await bcrypt.compare(password, user.password);
+    const isValid = await bcryptjs.compare(password, user.password);
     if (!isValid) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
