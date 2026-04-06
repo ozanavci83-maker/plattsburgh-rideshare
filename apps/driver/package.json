@@ -1,0 +1,24 @@
+{
+  "name": "driver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "expo start",
+    "build": "expo build:web",
+    "start": "expo start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Plattsburgh RideShare Driver App",
+  "dependencies": {
+    "@expo/vector-icons": "^15.1.1",
+    "axios": "^1.14.0",
+    "expo": "^55.0.11",
+    "expo-constants": "^55.0.11",
+    "expo-location": "^55.1.6",
+    "react": "^19.2.4",
+    "react-native": "^0.84.1",
+    "react-native-web": "^0.21.2"
+  }
+}
